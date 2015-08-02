@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<catalog_category_layered>
+		<reference name="head">
+			<action method="addItem" ifconfig="vc_ajaxlayerednavigation/general/enable"><type>skin_css</type><name>vc_ajaxlayerednavigation/css/styles.css</name><params/></action>
+			<!--action method="addItem" ifconfig="vc_ajaxlayerednavigation/general/enable"><type>skin_js</type><name>vc_ajaxlayerednavigation/js/jquery/jquery-1.10.2.js</name><params/></action>
+			<action method="addItem" ifconfig="vc_ajaxlayerednavigation/general/enable"><type>skin_js</type><name>vc_ajaxlayerednavigation/js/jquery/noconflict.js</name><params/></action-->
+			<action method="addItem" ifconfig="vc_ajaxlayerednavigation/general/enable"><type>skin_js</type><name>vc_ajaxlayerednavigation/js/scripts.js</name><params/></action>
+		</reference>	
+		<reference name="content">
+			<block type="vc_ajaxlayerednavigation/js" name="vc_ajaxlayerednavigation.js" as="vc_ajaxlayerednavigation.js">
+				<action method="setTemplate" ifconfig="vc_ajaxlayerednavigation/general/enable"><template>vc_ajaxlayerednavigation/js.phtml</template></action>
+			</block>
+		</reference>
+	
+		<reference name="catalog.leftnav">
+			<action method="setTemplate" ifconfig="vc_ajaxlayerednavigation/general/enable"><template>vc_ajaxlayerednavigation/catalog/layer/view.phtml</template></action>
+		</reference>
+	</catalog_category_layered>
+	
+	<vc_ajaxlayerednavigation_catalog_category_layered translate="label">
+        <label>Catalog Category (Anchor)</label>
+        <remove name="head"/>
+        <remove name="foot"/>
+        <!-- Mage_Checkout -->
+        <reference name="root">
+            <action method="setTemplate" ifconfig="vc_ajaxlayerednavigation/general/enable"><template>vc_ajaxlayerednavigation/container-3columns.phtml</template></action>
+        </reference>
+    </vc_ajaxlayerednavigation_catalog_category_layered>	
+</layout>

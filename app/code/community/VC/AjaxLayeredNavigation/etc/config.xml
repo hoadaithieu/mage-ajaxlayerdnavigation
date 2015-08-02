@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <VC_AjaxLayeredNavigation>
+            <version>1.0.0</version>
+        </VC_AjaxLayeredNavigation>
+    </modules>
+    <frontend>
+        <routers>
+            <vc_ajaxlayerednavigation>
+                <use>standard</use>
+                <args>
+                    <module>VC_AjaxLayeredNavigation</module>
+                    <frontName>vc_ajaxlayerednavigation</frontName>
+                </args>
+            </vc_ajaxlayerednavigation>
+        </routers>
+        <layout>
+            <updates>
+                <vc_ajaxlayerednavigation>
+                    <file>vc_ajaxlayerednavigation.xml</file>
+                </vc_ajaxlayerednavigation>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+			<vc_ajaxlayerednavigation>
+				<use>admin</use>
+				<args>
+					<module>VC_AjaxLayeredNavigation</module>
+					<frontName>vc_ajaxlayerednavigation</frontName>
+				</args>
+			</vc_ajaxlayerednavigation>
+        </routers>
+    </admin>
+    <adminhtml>
+		
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<vc_all>
+							<children>
+					
+								<vc_ajaxlayerednavigation>
+									<title>VC AjaxLayeredNavigation</title>
+									<sort_order>70</sort_order>						
+									
+								</vc_ajaxlayerednavigation>
+							</children>
+						</vc_all>
+						<system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <vc_ajaxlayerednavigation>
+                                            <title>VC AjaxLayeredNavigation Section</title>
+                                        </vc_ajaxlayerednavigation>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+												
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<vc_ajaxlayerednavigation>
+					<file>vc_ajaxlayerednavigation.xml</file>
+				</vc_ajaxlayerednavigation>
+			</updates>
+		</layout>
+    </adminhtml>   
+    <global>
+        <models>
+            <vc_ajaxlayerednavigation>
+                <class>VC_AjaxLayeredNavigation_Model</class>
+                <resourceModel>vc_ajaxlayerednavigation_resource</resourceModel>
+            </vc_ajaxlayerednavigation>
+        </models>	
+		
+		<resources>
+			<vc_ajaxlayerednavigation_setup>
+				<setup>
+					<module>VC_AjaxLayeredNavigation</module>
+				</setup>
+				<connection>
+					<use>core_setup</use>
+				</connection>
+			</vc_ajaxlayerednavigation_setup>
+			<vc_ajaxlayerednavigation_write>
+				<connection>
+					<use>core_write</use>
+				</connection>
+			</vc_ajaxlayerednavigation_write>
+			<vc_ajaxlayerednavigation_read>
+				<connection>
+					<use>core_read</use>
+				</connection>
+			</vc_ajaxlayerednavigation_read>
+		</resources>
+				
+        <blocks>
+            <vc_ajaxlayerednavigation>
+                <class>VC_AjaxLayeredNavigation_Block</class>
+            </vc_ajaxlayerednavigation>
+			
+			<catalog>
+				<rewrite>
+					<layer_filter_attribute>VC_AjaxLayeredNavigation_Block_Catalog_Layer_Filter_Attribute</layer_filter_attribute>
+					<layer_filter_price>VC_AjaxLayeredNavigation_Block_Catalog_Layer_Filter_Price</layer_filter_price>
+					<layer_filter_decimal>VC_AjaxLayeredNavigation_Block_Catalog_Layer_Filter_Decimal</layer_filter_decimal>
+					<layer_state>VC_AjaxLayeredNavigation_Block_Catalog_Layer_State</layer_state>
+				</rewrite>
+			</catalog>
+        </blocks>
+	
+        <helpers>
+            <vc_ajaxlayerednavigation>
+                <class>VC_AjaxLayeredNavigation_Helper</class>
+            </vc_ajaxlayerednavigation>
+        </helpers>
+		
+    </global>
+	
+	<default>
+		<vc_ajaxlayerednavigation>
+			<general>
+				<enable>0</enable>
+				<container_3columns>.col-wrapper</container_3columns>
+				<container_2columns_left>.main</container_2columns_left>
+			</general>
+		</vc_ajaxlayerednavigation>
+	</default>
+	
+</config>

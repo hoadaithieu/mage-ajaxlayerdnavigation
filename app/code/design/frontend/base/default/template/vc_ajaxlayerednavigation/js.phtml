@@ -1,0 +1,17 @@
+<script type="text/javascript">
+//<![CDATA[
+AjaxLayeredNavigation.options.container = '<?php echo $this->helper('vc_ajaxlayerednavigation')->getContainer();?>';
+AjaxLayeredNavigation.options.overlay = '.vcaln-waiting';
+AjaxLayeredNavigation.options.formKey = '<?php echo Mage::getSingleton('core/session')->getFormKey();?>';
+AjaxLayeredNavigation.options.url = '<?php echo $this->helper('vc_ajaxlayerednavigation')->getFilterUrl();?>';
+AjaxLayeredNavigation.options.id = <?php echo Mage::app()->getRequest()->getParam('id', false);?>;
+AjaxLayeredNavigation.options.currentLayout = '<?php echo Mage::app()->getLayout()->getBlock('root')->getTemplate();?>';
+
+jQuery(function() {
+	jQuery('.vcaln-waiting').remove();
+	jQuery(AjaxLayeredNavigation.options.container).css('position','relative');
+	jQuery(AjaxLayeredNavigation.options.container).append('<div class="vcaln-waiting" style="display:none"><img src="<?php echo $this->getSkinUrl('vc_ajaxlayerednavigation/images/ajax-loader.gif');?>"/></div>');
+});
+//]]>
+
+</script>
